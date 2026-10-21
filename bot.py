@@ -20,12 +20,12 @@ def ejecutar_bot():
 
         url = "https://greenbanan33.github.io/Automatizacion-Prueba/"
         
-        for i in range(1000):
+        for i in range(100):
             try:
                 print(f"Ejecución #{i + 1}")
                 page.goto(url, wait_until="networkidle")
 
-                with context.expect_page(timeout=5000) as nueva_pestana_info:
+                with context.expect_page(timeout=10000) as nueva_pestana_info:
                     page.click("iframe, a, ins, button")
 
                 nueva_pestana = nueva_pestana_info.value
