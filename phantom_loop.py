@@ -3,7 +3,7 @@ import os
 import time
 
 API_KEY = os.environ.get("PHANTOM_API_KEY")
-ENDPOINT = f"https://a.phantomjscloud.com/single/browser/v2/{API_KEY}/"
+ENDPOINT = f"https://phantomjscloud.com/api/browser/v2/{API_KEY}/"
 
 payload = {
     "url": "https://greenbanan33.github.io/Automatizacion-Prueba/",
