@@ -1,15 +1,18 @@
 import requests
 import os
 import time
+import json
 
 API_KEY = os.environ.get("PHANTOM_API_KEY")
 ENDPOINT = f"https://phantomjscloud.com/api/browser/v2/{API_KEY}/"
 
+# Estructura de payload oficial requerida por PhantomJS Cloud
 payload = {
     "url": "https://greenbanan33.github.io/Automatizacion-Prueba/",
-    "renderType": "plainText",
-    "requestSettings": {
-        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    "renderType": "html",
+    "outputAsJson": True,
+    "overrides": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
     },
     "scripts": {
         "domReady": [
@@ -28,7 +31,7 @@ for i in range(TOTAL_REPETICIONES):
         if response.status_code == 200:
             print(f"Ejecución #{i + 1} exitosa.")
         else:
-            print(f"Ejecución #{i + 1} falló: {response.status_code}")
+            print(f"Ejecución #{i + 1} falló con código {response.status_code}: {response.text[:100]}")
     except Exception as e:
         print(f"Error en ejecución #{i + 1}: {e}")
     
