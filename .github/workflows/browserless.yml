@@ -1,0 +1,26 @@
+name: Ejecutar Bot Browserless
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: |
+          pip install requests
+
+      - name: Ejecutar script Browserless
+        timeout-minutes: 360
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: python browserless_bot.py
