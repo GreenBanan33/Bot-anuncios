@@ -21,7 +21,7 @@ jobs:
           python -m playwright install chromium
 
       - name: Ejecutar script
-        timeout-minutes: 5
+        timeout-minutes: 360
         env:
           PYTHONUNBUFFERED: "1"
         run: python bot.py
