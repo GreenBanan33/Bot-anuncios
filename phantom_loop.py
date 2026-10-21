@@ -1,12 +1,10 @@
 import requests
 import os
 import time
-import json
 
 API_KEY = os.environ.get("PHANTOM_API_KEY")
 ENDPOINT = f"https://phantomjscloud.com/api/browser/v2/{API_KEY}/"
 
-# Estructura de payload oficial requerida por PhantomJS Cloud
 payload = {
     "url": "https://greenbanan33.github.io/Automatizacion-Prueba/",
     "renderType": "html",
