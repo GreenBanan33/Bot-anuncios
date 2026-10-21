@@ -16,12 +16,12 @@ jobs:
           python-version: '3.11'
 
       - name: Instalar dependencias
-      run: |
-        pip install playwright
-        python -m playwright install chromium
+        run: |
+          pip install playwright
+          python -m playwright install chromium
 
       - name: Ejecutar script
-      timeout-minutes: 5
-      env:
-        PYTHONUNBUFFERED: "1"
-      run: python bot.py
+        timeout-minutes: 5
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: python bot.py
